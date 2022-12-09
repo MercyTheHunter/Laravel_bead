@@ -17,7 +17,13 @@ class StudentFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "Vnev" =>$this->faker->lastName(),
+            "Knev" =>$this->faker->firstName(),
+            'Szulhely' =>$this->faker->city(),
+            'Szulido' =>$this->faker->dateTimeBetween($startDate = '-16 years', $endDate = 'now', $timezone = null),
+            'Lakcim' =>$this->faker->address(),
+            'ClassID'=>$this->faker->numberBetween($min = 1, $max = 24),
+            'LoginID'=>$this->faker->unique()->numberBetween($min = 71, $max = 170),
         ];
     }
 }

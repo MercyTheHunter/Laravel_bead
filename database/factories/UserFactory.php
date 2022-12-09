@@ -18,19 +18,11 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            "name" => $name = $this->faker->randomElement($array = array('P','S','T')).strval($this->faker->numberBetween($min = 100, $max = 999)).$this->faker->randomLetter().$this->faker->randomLetter().$this->faker->randomLetter()->unique(),
+            //"name" => $name = 'T'.strval($this->faker->numberBetween($min = 100, $max = 999)).$this->faker->randomLetter().$this->faker->randomLetter().$this->faker->randomLetter(),
+            //"name" => $name = 'P'.strval($this->faker->numberBetween($min = 100, $max = 999)).$this->faker->randomLetter().$this->faker->randomLetter().$this->faker->randomLetter(),
+            "name" => $name = 'S'.strval($this->faker->numberBetween($min = 100, $max = 999)).$this->faker->randomLetter().$this->faker->randomLetter().$this->faker->randomLetter(),
             "email" => $name.'@suli.hu',
-            "password" => $this->faker->password()->unique(), // password
-            "remember_token" => Str::random(10),
-        ];
-    }
-
-    public function defineTeacher()
-    {
-        return [
-            "name" => 'T'.strval($this->faker->numberBetween($min = 100, $max = 999)).$this->faker->randomLetter().$this->faker->randomLetter().$this->faker->randomLetter()->unique(),
-            "email" => $name.'@suli.hu',
-            "password" => $this->faker->password()->unique(), // password
+            "password" => $this->faker->password(), // password
             "remember_token" => Str::random(10),
         ];
     }

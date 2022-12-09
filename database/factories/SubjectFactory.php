@@ -17,7 +17,8 @@ class SubjectFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "Nev" => $this->faker->randomElement($array = array('Angol','Német','Töri','Matek','Magyar','Tesi','Info')),
+            "TeacherID" => $this->faker->unique()->numberBetween($min = 1, $max = 20),
         ];
     }
 }
