@@ -18,16 +18,16 @@ class DatabaseSeeder extends Seeder
         //\App\Models\User::factory()->count(20)->create();
         //\App\Models\Teacher::factory()->count(20)->create();
 
-        // Generates 50 parents - Modify UserFactory to 'P' !!!
-        //\App\Models\User::factory()->count(50)->create();
-        //\App\Models\Parents::factory()->count(50)->create();
+        // Generates 200 parents - Modify UserFactory to 'P' !!!
+        //\App\Models\User::factory()->count(200)->create();
+        //\App\Models\Parents::factory()->count(200)->create();
 
-        // Generates 100 students - Modify UserFactory to 'S' !!!
+        // Generates 300 students - Modify UserFactory to 'S' !!!
         //$this->call([ClassSeeder::class]);
-        //\App\Models\User::factory()->count(100)->create();
-        //\App\Models\Student::factory()->count(100)->create();
+        //\App\Models\User::factory()->count(300)->create();
+        //\App\Models\Student::factory()->count(300)->create();
 
-        $this->call([SubjectSeeder::class]);
+        //$this->call([SubjectSeeder::class]);
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

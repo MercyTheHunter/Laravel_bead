@@ -23,7 +23,7 @@ class StudentFactory extends Factory
             'Szulido' =>$this->faker->dateTimeBetween($startDate = '-22 years', $endDate = '-6 years', $timezone = null),
             'Lakcim' =>$this->faker->address(),
             'ClassID'=>$this->faker->numberBetween($min = 1, $max = 24),
-            'LoginID'=>$this->faker->unique()->numberBetween($min = 71, $max = 170),
+            'LoginID'=>$this->faker->unique()->numberBetween($min = 221, $max = 520),
         ];
     }
 }

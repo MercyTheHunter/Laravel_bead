@@ -15,10 +15,10 @@ class ClassSeeder extends Seeder
      */
     public function run()
     {
-        $array= array('a','b','c');
-        for ($i=1; $i < 9; $i++)
+        $array= array('a','b','c'); //The types of subclasses (a,b,c)
+        for ($i=1; $i < 9; $i++) //The types of main classes (1-8)
         {
-            for ($j=0; $j < 3; $j++)
+            for ($j=0; $j < 3; $j++) //The number of subclasses
             {
                 DB::table('classes')->insert([
                     'Nev' => $i.'.'.$array[$j],
