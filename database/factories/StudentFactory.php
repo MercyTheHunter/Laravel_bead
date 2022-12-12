@@ -20,7 +20,7 @@ class StudentFactory extends Factory
             "Vnev" =>$this->faker->lastName(),
             "Knev" =>$this->faker->firstName(),
             'Szulhely' =>$this->faker->city(),
-            'Szulido' =>$this->faker->dateTimeBetween($startDate = '-16 years', $endDate = 'now', $timezone = null),
+            'Szulido' =>$this->faker->dateTimeBetween($startDate = '-22 years', $endDate = '-6 years', $timezone = null),
             'Lakcim' =>$this->faker->address(),
             'ClassID'=>$this->faker->numberBetween($min = 1, $max = 24),
             'LoginID'=>$this->faker->unique()->numberBetween($min = 71, $max = 170),

@@ -23,11 +23,11 @@ class DatabaseSeeder extends Seeder
         //\App\Models\Parents::factory()->count(50)->create();
 
         // Generates 100 students - Modify UserFactory to 'S' !!!
-        //\App\Models\Classes::factory()->count(24)->create(); // <--- Can be duplicates - NEED FIX -
+        //$this->call([ClassSeeder::class]);
         //\App\Models\User::factory()->count(100)->create();
         //\App\Models\Student::factory()->count(100)->create();
 
-        \App\Models\Subject::factory()->count(20)->create();
+        $this->call([SubjectSeeder::class]);
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
