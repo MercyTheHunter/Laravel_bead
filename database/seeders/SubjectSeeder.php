@@ -16,7 +16,7 @@ class SubjectSeeder extends Seeder
      */
     public function run()
     {
-        $studentnum = 20; //The number of teachers
+        $teachernum = 20; //The number of teachers
         $faker = app(Generator::class);
         for ($i=1; $i < $teachernum + 1; $i++)
         {

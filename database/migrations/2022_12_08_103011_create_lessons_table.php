@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('lessons', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('StudentID');
+            $table->unsignedBigInteger('ClassID');
             $table->unsignedBigInteger('SubjectID');
             $table->timestamps();
 
-            $table->foreign('StudentID')->references('ID')->on('students')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('ClassID')->references('ID')->on('classes')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('SubjectID')->references('ID')->on('subjects')->onDelete('cascade')->onUpdate('cascade');
         });
     }
