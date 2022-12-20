@@ -22,6 +22,19 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
+Route::get('/timetable', function () {
+    return view('timetable');
+})->middleware(['auth', 'verified'])->name('timetable');
+
+Route::get('/delays', function () {
+    return view('delays');
+})->middleware(['auth', 'verified'])->name('delays');
+
+Route::get('/grades', function () {
+    return view('grades');
+})->middleware(['auth', 'verified'])->name('grades');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
