@@ -6,7 +6,17 @@
 
         <title>
             @auth
-                Hi, {{ auth()->user()->name}}!
+                @if((strcmp(substr(auth()->user()->name,0,1),"T")) == 0)
+                    Hello Teacher!
+                @endif
+
+                @if((strcmp(substr(auth()->user()->name,0,1),"P")) == 0)
+                    Hello Parent!
+                @endif
+
+                @if((strcmp(substr(auth()->user()->name,0,1),"S")) == 0)
+                    Hello Student!
+                @endif
             @else
                 Laravel
             @endauth
