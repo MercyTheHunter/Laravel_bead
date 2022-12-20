@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Faker\Generator;
 
 class TeacherSeeder extends Seeder
@@ -21,11 +22,11 @@ class TeacherSeeder extends Seeder
         for ($i=0; $i < $teachernum; $i++)
         {
             $name = 'T'.strval($faker->numberBetween($min = 100, $max = 999)).$faker->randomLetter().$faker->randomLetter().$faker->randomLetter();
-            $pswd = $faker->password();
+            $pswd = 'Fincsi!4';
             DB::table('users')->insert([
                 "name" => $name,
                 "email" => $name.'@suli.hu',
-                "password" => $pswd,
+                "password" => Hash::make($pswd),
             ]);
         }
     }
