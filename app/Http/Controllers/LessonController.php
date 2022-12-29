@@ -21,3 +21,12 @@ class LessonController extends Controller
         return view('teacher_timetable', compact('lesson'));
     }
 }
+$lesson = DB::table('lessons')
+        ->join('subjects', 'subjects.ID', '=', 'lessons.SubjectID')
+        ->join('classes', 'classes.ID', '=', 'lessons.ClassID')
+        ->join('students', 'students.classID', '=', 'classes.ID')
+        ->join('users', 'users.ID', '=', 'students.LoginID')
+        ->select('*')
+        ->where('LoginID', Auth::id())
+        ->get();
+        return view('teacher_timetable', compact('lesson'));

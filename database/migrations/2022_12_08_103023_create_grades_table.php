@@ -17,11 +17,11 @@ return new class extends Migration
             $table->datetime('Idopont')->primary();
             $table->unsignedBigInteger('StudentID');
             $table->integer('Jegy');
-            $table->unsignedBigInteger('SubjectID');
+            $table->unsignedBigInteger('LessonID');
             $table->timestamps();
 
             $table->foreign('StudentID')->references('ID')->on('students')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('SubjectID')->references('ID')->on('subjects')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('LessonID')->references('ID')->on('lessons')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
