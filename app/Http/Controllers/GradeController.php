@@ -28,11 +28,20 @@ class GradeController extends Controller
         ->join('lessons', 'lessons.ID', '=', 'grades.LessonID')
         ->join('subjects', 'subjects.ID', '=', 'lessons.SubjectID')
         ->join('students', 'students.ID', '=', 'grades.StudentID')
-        ->select('Idopont, Jegy, subject.ID')
+        ->select('Idopont', 'Jegy', 'subjects.ID')
         ->where('students.LoginID', Auth::id())
-        ->groupBy('subject.ID')
+        ->where('subjects.Nev', request("subject"))
         ->get();
 
-        return view('student_grades_table', compact('grades'));
+        $avg= DB::table('grades')
+        ->join('lessons', 'lessons.ID', '=', 'grades.LessonID')
+        ->join('subjects', 'subjects.ID', '=', 'lessons.SubjectID')
+        ->join('students', 'students.ID', '=', 'grades.StudentID')
+        ->select('Idopont', 'Jegy', 'subjects.ID')
+        ->where('students.LoginID', Auth::id())
+        ->where('subjects.Nev', request("subject"))
+        ->avg('Jegy');
+
+        return view('student_grades_table', compact('grades', 'avg'));
     }
 }
