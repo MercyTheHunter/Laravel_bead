@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([TeacherSeeder::class]); //20 users as 'teacher'
-        \App\Models\Teacher::factory()->count(20)->create();
+        \App\Models\Teacher::factory()->count(24)->create();
         $this->call([ParentSeeder::class]);  //200 users as 'parent'
         \App\Models\Parents::factory()->count(200)->create();
         $this->call([ClassSeeder::class]);

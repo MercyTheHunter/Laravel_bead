@@ -20,7 +20,7 @@ class ParentsFactory extends Factory
             "Vnev" =>$this->faker->lastName(),
             "Knev" =>$this->faker->firstName(),
             "Telszam" =>'+36'.strval($this->faker->randomElement($array = array('20','30','70'))).strval($this->faker->numberBetween($min = 1000000, $max = 9999999)),
-            "LoginID" => $this->faker->unique()->numberBetween($min = 21, $max = 220), //Login name starts with 'P'
+            "LoginID" => $this->faker->unique()->numberBetween($min = 25, $max = 224), //Login name starts with 'P'
         ];
     }
 }

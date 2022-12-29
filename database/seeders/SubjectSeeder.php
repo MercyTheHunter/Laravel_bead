@@ -16,11 +16,11 @@ class SubjectSeeder extends Seeder
      */
     public function run()
     {
-        $teachernum = 20; //The number of teachers
+        $teachernum = 24; //The number of teachers
         $faker = app(Generator::class);
         for ($i=1; $i < $teachernum + 1; $i++)
         {
-            for ($j=0; $j < 2; $j++) //The number of subjects a teacher teaches
+            for ($j=0; $j < 5; $j++) //The number of subjects a teacher teaches
             {
                 $subject = $faker->randomElement($array = array('Angol','Német','Töri','Matek','Magyar','Tesi','Info'));
                 DB::table('subjects')->insert([

@@ -43,6 +43,7 @@ Route::get('/teacher-timetable', function () {
     return view('teacher_timetable');
 })->middleware(['auth', 'verified', 'teacher'])->name('teacher_timetable');
 //Route::get('teacher-timetable', [App\Http\Controllers\LessonController::class, 'show']);
+Route::get('/liststudents/{lesson}', [App\Http\Controllers\LessonController::class, 'listStudents']);
 
 Route::get('/delays', function () {
     return view('student_delays');
@@ -52,7 +53,7 @@ Route::get('/parent-delays', function () {
     return view('parent_delays');
 })->middleware(['auth', 'verified', 'parent'])->name('parent_delays');
 
-Route::get('/teacher-delays', function () {
+Route::get('/liststudents', function () {
     return view('teacher_delays');
 })->middleware(['auth', 'verified', 'teacher'])->name('teacher_delays');
 
@@ -64,8 +65,8 @@ Route::get('/parent-grades', function () {
     return view('parent_grades');
 })->middleware(['auth', 'verified', 'parent'])->name('parent_grades');
 
-Route::get('/teacher-grades', function () {
-    return view('teacher_grades');
+Route::get('/liststudents', function () {
+    return view('liststudents');
 })->middleware(['auth', 'verified', 'teacher'])->name('teacher_grades');
 
 Route::middleware('auth')->group(function () {

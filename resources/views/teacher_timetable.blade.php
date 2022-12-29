@@ -26,7 +26,7 @@
                 <tbody>
                     <tr>
                         <th scope="row">8:00 - 8:45</th>
-                        <td></td>
+                        <td>{{$lesson}}</td>
                         <td></td>
                         <td></td>
                         <td></td>
