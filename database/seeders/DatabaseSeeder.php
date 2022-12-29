@@ -24,7 +24,8 @@ class DatabaseSeeder extends Seeder
         $this->call([SubjectSeeder::class]);
         $this->call([ParentstudentSeeder::class]);
         $this->call([LessonSeeder::class]);
-
+        $this->call([DelaySeeder::class]);
+        $this->call([GradeSeeder::class]);
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
