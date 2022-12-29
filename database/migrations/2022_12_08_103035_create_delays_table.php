@@ -15,12 +15,13 @@ return new class extends Migration
     {
         Schema::create('delays', function (Blueprint $table) {
             $table->id();
-            $table->string('Diaknev');
+            $table->unsignedBigInteger('StudentID');
             $table->unsignedBigInteger('LessonID');
             $table->integer('Mennyiseg');
             $table->datetime('Datum');
             $table->timestamps();
 
+            $table->foreign('StudentID')->references('ID')->on('students')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('LessonID')->references('ID')->on('lessons')->onDelete('cascade')->onUpdate('cascade');
         });
     }

@@ -21,7 +21,7 @@ class ClassSeeder extends Seeder
             for ($j=0; $j < 3; $j++) //The number of subclasses
             {
                 DB::table('classes')->insert([
-                    'Nev' => $i.'.'.$array[$j],
+                    'Osztalynev' => $i.'.'.$array[$j],
                 ]);
             }
         }

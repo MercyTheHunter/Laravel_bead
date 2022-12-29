@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Grade extends Model
 {
     use HasFactory;
-    public function subjects()
+    public function lessons()
     {
-        return $this->belongstoMany(Subject::class);
+        return $this->belongstoMany(Lesson::class);
     }
     public function students()
     {
