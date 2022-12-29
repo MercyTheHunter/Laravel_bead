@@ -56,13 +56,9 @@
                     </tr>
                     <tr>
                         <th scope="row">10:00 - 10:45</th>
-                        @foreach ($lesson as $i)
+                        @foreach ( $lesson as $i)
                             @if ($i->LessonTime == '10:00 - 10:45')
-                                @if ($i->LessonDay == 'Hétfő')
-                                    <td>{{$i->Nev}}</td>
-                                @else
-                                <td>-</td>
-                                @endif
+                                <td>{{$i->Nev}}</td>
                             @endif
                         @endforeach
                     </tr>
