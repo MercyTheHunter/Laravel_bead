@@ -26,43 +26,61 @@
                 <tbody>
                     <tr>
                         <th scope="row">8:00 - 8:45</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        @foreach ($lesson as $i)
+                            @if ($i->LessonTime == '8:00 - 8:45')
+                                @if ($i->LessonDay == 'Hétfő')
+                                    <td>{{$i->Nev}}</td>
+                                @endif
+                                @if ($i->LessonDay == 'Kedd')
+                                    <td>{{$i->Nev}}</td>
+                                @endif
+                                @if ($i->LessonDay == 'Szerda')
+                                    <td>{{$i->Nev}}</td>
+                                @endif
+                                @if ($i->LessonDay == 'Csütörtök')
+                                    <td>{{$i->Nev}}</td>
+                                @endif
+                                @if ($i->LessonDay == 'Péntek')
+                                    <td>{{$i->Nev}}</td>
+                                @endif
+                            @endif
+                        @endforeach
                     </tr>
                     <tr>
                         <th scope="row">9:00 - 9:45</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        @foreach ( $lesson as $i)
+                            @if ($i->LessonTime == '9:00 - 9:45')
+                                <td>{{$i->Nev}}</td>
+                            @endif
+                        @endforeach
                     </tr>
                     <tr>
                         <th scope="row">10:00 - 10:45</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        @foreach ($lesson as $i)
+                            @if ($i->LessonTime == '10:00 - 10:45')
+                                @if ($i->LessonDay == 'Hétfő')
+                                    <td>{{$i->Nev}}</td>
+                                @else
+                                <td>-</td>
+                                @endif
+                            @endif
+                        @endforeach
                     </tr>
                     <tr>
                         <th scope="row">11:00 - 11:45</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        @foreach ( $lesson as $i)
+                            @if ($i->LessonTime == '11:00 - 11:45')
+                                <td>{{$i->Nev}}</td>
+                            @endif
+                        @endforeach
                     </tr>
                     <tr>
                         <th scope="row">12:00 - 12:45</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        @foreach ( $lesson as $i)
+                            @if ($i->LessonTime == '12:00 - 12:45')
+                                <td>{{$i->Nev}}</td>
+                            @endif
+                        @endforeach
                     </tr>
                 </tbody>
                 </table>
