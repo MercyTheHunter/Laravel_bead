@@ -41,13 +41,12 @@ Route::get('/parent-timetable', function () {
 
 
 Route::group(['middleware' => ['auth', 'verified', 'teacher']], function () {
-    Route::get('/teacher-timetable', [App\Http\Controllers\LessonController::class, 'show'])->name('teacher_timetable');
-    /*
-    Route::get('/teacher-timetable', function () {
-        return view('teacher_timetable');
-    })*/
+    Route::get('/teacher-timetable', [App\Http\Controllers\LessonController::class, 'showT'])->name('teacher_timetable');
 });
 
+Route::group(['middleware' => ['auth', 'verified', 'student']], function () {
+    Route::get('/timetable', [App\Http\Controllers\LessonController::class, 'showS'])->name('timetable');
+});
 /*
 Route::get('/teacher-timetable', function () {
     return view('teacher_timetable');

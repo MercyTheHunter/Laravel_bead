@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LessonController extends Controller
 {
-    public function show()
+    public function showT()
     {
         $lesson = DB::table('lessons')
         ->join('subjects', 'subjects.ID', '=', 'lessons.SubjectID')
@@ -19,5 +19,18 @@ class LessonController extends Controller
         ->where('LoginID', Auth::id())
         ->get();
         return view('teacher_timetable', compact('lesson'));
+    }
+
+    public function showS()
+    {
+        $lesson = DB::table('lessons')
+        ->join('subjects', 'subjects.ID', '=', 'lessons.SubjectID')
+        ->join('classes', 'classes.ID', '=', 'lessons.ClassID')
+        ->join('students', 'students.classID', '=', 'classes.ID')
+        ->join('users', 'users.ID', '=', 'students.LoginID')
+        ->select('*')
+        ->where('LoginID', Auth::id())
+        ->get();
+        return view('student_timetable', compact('lesson'));
     }
 }
