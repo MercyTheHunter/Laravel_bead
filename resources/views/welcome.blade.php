@@ -15,7 +15,7 @@
                     Hello Parent!
                 @endif
 
-                @if((strcmp(substr(auth()->user()->name,0,1),"P")) == 0)
+                @if((strcmp(substr(auth()->user()->name,0,1),"S")) == 0)
                     Hello Student!
                 @endif
             @else
