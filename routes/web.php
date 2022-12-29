@@ -39,6 +39,8 @@ Route::group(['middleware' => ['auth', 'verified', 'teacher']], function () {
 Route::group(['middleware' => ['auth', 'verified', 'student']], function () {
     Route::get('/timetable', [App\Http\Controllers\LessonController::class, 'showS'])->name('timetable');
     Route::get('/delays', [App\Http\Controllers\DelayController::class, 'showS'])->name('delays');
+    Route::get('/grades', [App\Http\Controllers\GradeController::class, 'showS'])->name('grades');
+    Route::post('/student_grades/table', [App\Http\Controllers\GradeController::class, 'showSG'])->name('student_grades_table');
 });
 
 //Parent things
@@ -48,23 +50,10 @@ Route::group(['middleware' => ['auth', 'verified', 'parent']], function () {
     Route::get('/parent_delays', [App\Http\Controllers\DelayController::class, 'showP'])->name('parent_delays');
     Route::post('/parent_delays/table', [App\Http\Controllers\DelayController::class, 'showPS'])->name('parent_delays_table');
 });
-/*
-Route::get('/teacher-timetable', function () {
-    return view('teacher_timetable');
-})->middleware(['auth', 'verified', 'teacher'])->name('teacher_timetable');
-//Route::get('teacher-timetable', [App\Http\Controllers\LessonController::class, 'show']);
-*/
-
-
-
 
 Route::get('/teacher_delays', function () {
     return view('teacher_delays');
 })->middleware(['auth', 'verified', 'teacher'])->name('teacher_delays');
-
-Route::get('/grades', function () {
-    return view('student_grades');
-})->middleware(['auth', 'verified', 'student'])->name('grades');
 
 Route::get('/parent-grades', function () {
     return view('parent_grades');
