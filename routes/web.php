@@ -39,11 +39,20 @@ Route::get('/parent-timetable', function () {
     return view('parent_timetable');
 })->middleware(['auth', 'verified', 'parent'])->name('parent_timetable');
 
+
+Route::group(['middleware' => ['auth', 'verified', 'teacher']], function () {
+    Route::get('/teacher-timetable/show', [App\Http\Controllers\LessonController::class, 'show']);
+    Route::get('/teacher-timetable', function () {
+        return view('teacher_timetable');
+    })->name('teacher_timetable');
+});
+
+/*
 Route::get('/teacher-timetable', function () {
     return view('teacher_timetable');
 })->middleware(['auth', 'verified', 'teacher'])->name('teacher_timetable');
 //Route::get('teacher-timetable', [App\Http\Controllers\LessonController::class, 'show']);
-Route::get('/liststudents/{lesson}', [App\Http\Controllers\LessonController::class, 'listStudents']);
+*/
 
 Route::get('/delays', function () {
     return view('student_delays');

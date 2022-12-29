@@ -8,8 +8,25 @@ use Illuminate\Support\Facades\DB;
 
 class LessonController extends Controller
 {
+    public function show()
     public function show($loginid)
     {
+        $lesson = DB::table('lessons')
+        ->join('subjects', 'subjects.ID', '=', 'lessons.SubjectID')
+        ->join('teachers', 'teachers.ID', '=', 'subjects.TeacherID')
+        ->join('users', 'users.ID', '=', 'teachers.LoginID')
+        ->select('*')
+        ->where('TeacherID', 8)
+        ->get();
+        return view('teacher_timetable', compact('lesson'));
+
+        /*
+        $lesson = DB::table('lessons')
+                ->join('subjects', 'subjects.ID', '=', 'lessons.SubjectID')
+                ->join('teachers', 'teacher.ID', '=', 'subjects.TeacherID')
+                ->join('users', 'users.ID', '=', 'teachers.LoginID')
+                ->select('*')
+                ->where('teachers.LoginID', 2);
         $lesson = DB::table('lessons')
                 ->join('subjects', 'subjects.ID', '=', 'lessons.SubjectID')
                 ->join('teachers', 'teacher.ID', '=', 'subjects.TeacherID')
@@ -17,16 +34,6 @@ class LessonController extends Controller
                 ->select('subjects.Nev')
                 ->where('teachers.LoginID', $loginid);
         return view('teacher_timetable', compact('lesson'));
+        */
     }
-
-    public function listStudents($lessonid)
-    {
-        $students = DB::table('lessons')
-                ->join('classes', 'classes.ID', '=', 'lessons.classID')
-                ->join('students', 'classes.ID', '=', 'students.classID')
-                ->select('students.Vnev', 'students.Knev')
-                ->where('lessons.ID', $lessonid);
-        return view('teacher_delays', compact('students'));
-    }
-
 }
