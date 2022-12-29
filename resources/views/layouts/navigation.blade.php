@@ -28,16 +28,16 @@
                     @endif
 
                     @if((strcmp(substr(auth()->user()->name,0,1),"P")) == 0)
-                        <x-nav-link :href="route('parent_dashboard')" :active="request()->routeIs('teacher_dashboard')">
+                        <x-nav-link :href="route('parent_dashboard')" :active="request()->routeIs('parent_dashboard')">
                             {{ __('Dashboard') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('parent_timetable')" :active="request()->routeIs('teacher_timetable')">
+                        <x-nav-link :href="route('parent_timetable')" :active="request()->routeIs('parent_timetable')">
                             {{ __('Timetable') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('parent_delays')" :active="request()->routeIs('teacher_delays')">
+                        <x-nav-link :href="route('parent_delays')" :active="request()->routeIs('parent_delays')">
                             {{ __('Delays') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('parent_grades')" :active="request()->routeIs('teacher_grades')">
+                        <x-nav-link :href="route('parent_grades')" :active="request()->routeIs('parent_grades')">
                             {{ __('Grades') }}
                         </x-nav-link>
                     @endif
