@@ -12,6 +12,37 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    @if((strcmp(substr(auth()->user()->name,0,1),"T")) == 0)
+                        <x-nav-link :href="route('teacher_dashboard')" :active="request()->routeIs('teacher_dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('teacher_timetable')" :active="request()->routeIs('teacher_timetable')">
+                            {{ __('Timetable') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('teacher_delays')" :active="request()->routeIs('teacher_delays')">
+                            {{ __('Delays') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('teacher_grades')" :active="request()->routeIs('teacher_grades')">
+                            {{ __('Grades') }}
+                        </x-nav-link>
+                    @endif
+
+                    @if((strcmp(substr(auth()->user()->name,0,1),"P")) == 0)
+                        <x-nav-link :href="route('parent_dashboard')" :active="request()->routeIs('teacher_dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('parent_timetable')" :active="request()->routeIs('teacher_timetable')">
+                            {{ __('Timetable') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('parent_delays')" :active="request()->routeIs('teacher_delays')">
+                            {{ __('Delays') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('parent_grades')" :active="request()->routeIs('teacher_grades')">
+                            {{ __('Grades') }}
+                        </x-nav-link>
+                    @endif
+
+                    @if((strcmp(substr(auth()->user()->name,0,1),"S")) == 0)
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
@@ -24,6 +55,8 @@
                     <x-nav-link :href="route('grades')" :active="request()->routeIs('grades')">
                         {{ __('Grades') }}
                     </x-nav-link>
+                    @endif
+
                 </div>
             </div>
 

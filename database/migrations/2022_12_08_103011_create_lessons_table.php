@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('ClassID');
             $table->unsignedBigInteger('SubjectID');
+            $table->string('LessonDay');  //Hétfő
+            $table->string('LessonTime'); //8:00 - 8:45
             $table->timestamps();
 
             $table->foreign('ClassID')->references('ID')->on('classes')->onDelete('cascade')->onUpdate('cascade');

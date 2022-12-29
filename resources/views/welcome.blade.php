@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!--auth()->user()->role == 'student'-->
         <title>
             @auth
                 @if((strcmp(substr(auth()->user()->name,0,1),"T")) == 0)
@@ -14,7 +15,7 @@
                     Hello Parent!
                 @endif
 
-                @if((strcmp(substr(auth()->user()->name,0,1),"S")) == 0)
+                @if((strcmp(substr(auth()->user()->name,0,1),"P")) == 0)
                     Hello Student!
                 @endif
             @else

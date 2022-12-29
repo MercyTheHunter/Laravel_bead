@@ -19,21 +19,54 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    return view('student_dashboard');
+})->middleware(['auth', 'verified', 'student'])->name('dashboard');
+
+Route::get('/parent-dashboard', function () {
+    return view('parent_dashboard');
+})->middleware(['auth', 'verified', 'parent'])->name('parent_dashboard');
+
+Route::get('/teacher-dashboard', function () {
+    return view('teacher_dashboard');
+})->middleware(['auth', 'verified', 'teacher'])->name('teacher_dashboard');
 
 
 Route::get('/timetable', function () {
-    return view('timetable');
-})->middleware(['auth', 'verified'])->name('timetable');
+    return view('student_timetable');
+})->middleware(['auth', 'verified', 'student'])->name('timetable');
+
+Route::get('/parent-timetable', function () {
+    return view('parent_timetable');
+})->middleware(['auth', 'verified', 'parent'])->name('parent_timetable');
+
+Route::get('/teacher-timetable', function () {
+    return view('teacher_timetable');
+})->middleware(['auth', 'verified', 'teacher'])->name('teacher_timetable');
+//Route::get('teacher-timetable', [App\Http\Controllers\LessonController::class, 'show']);
 
 Route::get('/delays', function () {
-    return view('delays');
-})->middleware(['auth', 'verified'])->name('delays');
+    return view('student_delays');
+})->middleware(['auth', 'verified', 'student'])->name('delays');
+
+Route::get('/parent-delays', function () {
+    return view('parent_delays');
+})->middleware(['auth', 'verified', 'parent'])->name('parent_delays');
+
+Route::get('/teacher-delays', function () {
+    return view('teacher_delays');
+})->middleware(['auth', 'verified', 'teacher'])->name('teacher_delays');
 
 Route::get('/grades', function () {
-    return view('grades');
-})->middleware(['auth', 'verified'])->name('grades');
+    return view('student_grades');
+})->middleware(['auth', 'verified', 'student'])->name('grades');
+
+Route::get('/parent-grades', function () {
+    return view('parent_grades');
+})->middleware(['auth', 'verified', 'parent'])->name('parent_grades');
+
+Route::get('/teacher-grades', function () {
+    return view('teacher_grades');
+})->middleware(['auth', 'verified', 'teacher'])->name('teacher_grades');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

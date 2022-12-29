@@ -27,6 +27,7 @@ class TeacherSeeder extends Seeder
                 "name" => $name,
                 "email" => $name.'@suli.hu',
                 "password" => Hash::make($pswd),
+                "role" => 'teacher',
             ]);
         }
     }
