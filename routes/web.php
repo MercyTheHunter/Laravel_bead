@@ -36,6 +36,7 @@ Route::group(['middleware' => ['auth', 'verified', 'student']], function () {
     Route::get('/grades', [App\Http\Controllers\GradeController::class, 'showS'])->name('grades');
     Route::post('/student_grades/table', [App\Http\Controllers\GradeController::class, 'showSG'])->name('student_grades_table');
 });
+//
 
 //Parent things
 Route::group(['middleware' => ['auth', 'verified', 'parent']], function () {
