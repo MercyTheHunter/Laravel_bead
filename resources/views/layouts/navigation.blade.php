@@ -14,43 +14,43 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     @if((strcmp(substr(auth()->user()->name,0,1),"T")) == 0)
                         <x-nav-link :href="route('teacher_dashboard')" :active="request()->routeIs('teacher_dashboard')">
-                            {{ __('Dashboard') }}
+                            {{ __('Adatlap') }}
                         </x-nav-link>
                         <x-nav-link :href="route('teacher_timetable')" :active="request()->routeIs('teacher_timetable')">
-                            {{ __('Timetable') }}
+                            {{ __('Órarend') }}
                         </x-nav-link>
                         <x-nav-link :href="route('teacher_students')" :active="request()->routeIs('teacher_students')">
-                            {{ __('Students') }}
+                            {{ __('Tanulók') }}
                         </x-nav-link>
                     @endif
 
                     @if((strcmp(substr(auth()->user()->name,0,1),"P")) == 0)
                         <x-nav-link :href="route('parent_dashboard')" :active="request()->routeIs('parent_dashboard')">
-                            {{ __('Dashboard') }}
+                            {{ __('Adatlap') }}
                         </x-nav-link>
                         <x-nav-link :href="route('parent_timetable')" :active="request()->routeIs('parent_timetable')">
-                            {{ __('Timetable') }}
+                            {{ __('Órarend') }}
                         </x-nav-link>
                         <x-nav-link :href="route('parent_delays')" :active="request()->routeIs('parent_delays')">
-                            {{ __('Delays') }}
+                            {{ __('Késések') }}
                         </x-nav-link>
                         <x-nav-link :href="route('parent_grades')" :active="request()->routeIs('parent_grades')">
-                            {{ __('Grades') }}
+                            {{ __('Osztályzatok') }}
                         </x-nav-link>
                     @endif
 
                     @if((strcmp(substr(auth()->user()->name,0,1),"S")) == 0)
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Adatlap') }}
                     </x-nav-link>
                     <x-nav-link :href="route('timetable')" :active="request()->routeIs('timetable')">
-                        {{ __('Timetable') }}
+                        {{ __('Órarend') }}
                     </x-nav-link>
                     <x-nav-link :href="route('delays')" :active="request()->routeIs('delays')">
-                        {{ __('Delays') }}
+                        {{ __('Késések') }}
                     </x-nav-link>
                     <x-nav-link :href="route('grades')" :active="request()->routeIs('grades')">
-                        {{ __('Grades') }}
+                        {{ __('Osztályzatok') }}
                     </x-nav-link>
                     @endif
 
@@ -74,7 +74,7 @@
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                            {{ __('Profil') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -84,7 +84,7 @@
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('Kijelentkezés') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
