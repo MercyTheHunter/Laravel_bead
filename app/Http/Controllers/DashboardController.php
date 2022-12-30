@@ -21,11 +21,29 @@ class DashboardController extends Controller
 
     public function showP()
     {
-        return view('parent_dashboard');
+        $children = DB::table('students')
+        ->join('classes', 'classes.ID', '=', 'students.ClassID')
+        ->join('parentstudents', 'students.ID', '=', 'parentstudents.StudentID')
+        ->join('parents', 'parents.ID', '=', 'parentstudents.ParentID')
+        ->join('users', 'users.ID', '=', 'parents.LoginID')
+        ->where('parents.LoginID', Auth::id())
+        ->get();
+
+        $parent = DB::table('parents')
+        ->join('users', 'users.ID', '=', 'parents.LoginID')
+        ->where('parents.LoginID', Auth::id())
+        ->get();
+
+        return view('parent_dashboard', compact('children', 'parent'));
     }
 
     public function showT()
     {
-        return view('teacher_dashboard');
+        $teacher = DB::table('teachers')
+        ->join('users', 'users.ID', '=', 'teachers.LoginID')
+        ->where('teachers.LoginID', Auth::id())
+        ->get();
+
+        return view('teacher_dashboard', compact('teacher'));
     }
 }
