@@ -23,11 +23,9 @@ Route::group(['middleware' => ['auth', 'verified', 'teacher']], function () {
     Route::get('/teacher_dashboard', [App\Http\Controllers\DashboardController::class, 'showT'])->name('teacher_dashboard');
     Route::get('/teacher_timetable', [App\Http\Controllers\LessonController::class, 'showT'])->name('teacher_timetable');
     Route::get('/teacher_students', [App\Http\Controllers\TeacherController::class, 'show'])->name('teacher_students');
-    Route::get('/teacher_students/give_grade', [App\Http\Controllers\TeacherController::class, 'createG'])->name('teacher_studentslist.createG');
-    Route::get('/teacher_students/give_delay', [App\Http\Controllers\TeacherController::class, 'createD'])->name('teacher_studentslist.createD');
     Route::post('/teacher_students/list', [App\Http\Controllers\TeacherController::class, 'showL'])->name('teacher_students_list');
-    Route::post('/teacher_students/store_grade', [App\Http\Controllers\GradeController::class, 'storeG'])->name('grade_save');
-    Route::post('/teacher_students/store_delay', [App\Http\Controllers\DelayController::class, 'storeD'])->name('delay_save');
+    Route::post('/teacher_students/store_grade', [App\Http\Controllers\TeacherController::class, 'storeG'])->name('grade_save');
+    Route::post('/teacher_students/store_delay', [App\Http\Controllers\TeacherController::class, 'storeD'])->name('delay_save');
 });
 
 //Student things

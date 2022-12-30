@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
+use App\Models\Grade;
+use App\Models\Delay;
+use Carbon\Carbon;
+
 class TeacherController extends Controller
 {
     public function show()
@@ -17,6 +21,7 @@ class TeacherController extends Controller
         ->where('teachers.LoginID', Auth::id())
         ->get();
 
+        //dd($lessons);
         return view('teacher_students', compact('lessons'));
     }
 
@@ -29,16 +34,33 @@ class TeacherController extends Controller
         ->where('lessons.ID', request("lesson"))
         ->get();
 
-        return view('teacher_students_list', compact('students'));
+        $lesson = DB::table('lessons')
+        ->join('subjects', 'subjects.ID', '=', 'lessons.SubjectID')
+        ->select('*')
+        ->where('lessons.ID', request("lesson"))
+        ->get();
+        return view('teacher_students_list', compact('students', 'lesson'));
     }
 
-    public function createG()
+    public function storeG(Request $request)
     {
-        return view("teacher_studentlist.createG");
+        $s = new Grade();
+        $s->Idopont = Carbon::now();
+        $s->StudentID = 1; //request('');
+        $s->Jegy = request('grade');
+        $s->LessonID = 1; //request('');
+        $s->save();
+        return view('teacher_dashboard');
     }
 
-    public function createD()
+    public function storeD(Request $request)
     {
-        return view("teacher_studentlist.createD");
+        $s = new Delay();
+        $s->StudentID = 1;
+        $s->LessonID = 1;
+        $s->Mennyiseg = request('delay');
+        $s->Datum = Carbon::now();
+        $s->save();
+        return view('teacher_dashboard');
     }
 }

@@ -34,9 +34,8 @@
                                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                     aria-label=".form-select-lg example"
                                     id="lesson" name="lesson">
-                                    <option selected>Válasszon..</option>
                                     @foreach ($lessons as $i)
-                                        <option value="{{ $i->ID }}">{{$i->LessonTime}}: {{ $i->Nev}}
+                                        <option value="{{ $i->id }}">nap: {{$i->LessonDay}}, időpont: {{$i->LessonTime}}, tárgy: {{ $i->Nev}}
                                         </option>
                                     @endforeach
                                 </select>

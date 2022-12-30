@@ -11,6 +11,13 @@
                 <div class="p-6 text-gray-900">
                     {{ __("Diáklista") }}
                 </div>
+                <div class="pl-6">
+                    @foreach ($lesson as $i)
+                    <p>Nap: <b>{{$i->LessonDay}}</b></p>
+                    <p>Időpont: <b>{{$i->LessonTime}}</b></p>
+                    <p>Tanóra: <b>{{$i->Nev}}</b></p>
+                    @endforeach
+                </div>
                 <div class="flex flex-col">
                     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                       <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
@@ -36,16 +43,16 @@
                                   {{$i->Vnev}} {{$i->Knev}}
                                 </td>
                                 <td class="text-lg text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                    <form action="/teacher_students/give_grade">
-                                        
+                                    <form action="/teacher_students/store_grade" method="POST">
+                                        <input type="text" id="grade" name="grade">
                                         <button type="submit" class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">jegy beírása</button>
                                     </form>
                                 </td>
                                 <td class="text-lg text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                    <form action="/teacher_students/give_delay">
+                                    <form action="/teacher_students/list" method="POST">
+                                        <input type="text" id="delay" name="delay">
                                         <button type="submit" class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">késés</button>
                                     </form>
-
                                 </td>
                               </tr>
                               @endforeach

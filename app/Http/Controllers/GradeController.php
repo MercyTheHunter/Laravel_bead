@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Grade;
-use Carbon\Carbon;
 
 class GradeController extends Controller
 {
@@ -95,16 +93,5 @@ class GradeController extends Controller
         ->avg('Jegy');
 
         return view('parent_grades_table', compact('grades', 'avg'));
-    }
-
-    public function storeG(Request $request)
-    {
-        $s = new Grade();
-        $s->Idopont = Carbon::now();
-        $s->StudentID = 1; //request('');
-        $s->Jegy = request('grade');
-        $s->LessonID = 1; //request('');
-        $s->save();
-        return view('teacher_students_list');
     }
 }
