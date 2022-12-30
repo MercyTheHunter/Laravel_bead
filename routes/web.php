@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',function(){
+    return view('auth.login');
+})->middleware(['auth']);
 
 //Teacher things
 Route::group(['middleware' => ['auth', 'verified', 'teacher']], function () {

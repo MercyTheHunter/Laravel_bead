@@ -30,8 +30,22 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate();
         $request->session()->regenerate();
-
-        return redirect()->intended(RouteServiceProvider::HOME);
+        if((strcmp(substr(auth()->user()->name,0,1),"T")) == 0)
+        {
+            return redirect()->intended('/teacher_dashboard');
+        }
+        else if((strcmp(substr(auth()->user()->name,0,1),"P")) == 0)
+        {
+            return redirect()->intended('/parent_dashboard');
+        }
+        else if((strcmp(substr(auth()->user()->name,0,1),"S")) == 0)
+        {
+            return redirect()->intended('/dashboard');
+        }
+        else
+        {
+            return redirect()->intended(RouteServiceProvider::HOME);
+        }
     }
 
     /**
@@ -48,6 +62,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/login');
     }
 }
