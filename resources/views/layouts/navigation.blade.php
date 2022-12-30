@@ -19,11 +19,8 @@
                         <x-nav-link :href="route('teacher_timetable')" :active="request()->routeIs('teacher_timetable')">
                             {{ __('Timetable') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('teacher_delays')" :active="request()->routeIs('teacher_delays')">
-                            {{ __('Delays') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('teacher_grades')" :active="request()->routeIs('teacher_grades')">
-                            {{ __('Grades') }}
+                        <x-nav-link :href="route('teacher_students')" :active="request()->routeIs('teacher_students')">
+                            {{ __('Students') }}
                         </x-nav-link>
                     @endif
 
