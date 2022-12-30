@@ -32,8 +32,13 @@ class TeacherController extends Controller
         return view('teacher_students_list', compact('students'));
     }
 
-    public function create()
+    public function createG()
     {
-        return view("teacher_studentlist.create");
+        return view("teacher_studentlist.createG");
+    }
+
+    public function createD()
+    {
+        return view("teacher_studentlist.createD");
     }
 }

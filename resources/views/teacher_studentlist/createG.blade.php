@@ -12,7 +12,7 @@
                     {{ __('Jegy beírása') }}
                 </div>
                 <div class="p-6">
-                    <form action="" method="POST" id="givegrade">
+                    <form action="/teacher_students/store_grade" method="POST" id="givegrade">
                         @csrf
                         <div class="form-group">
                             <label for="name">Jegy:</label>

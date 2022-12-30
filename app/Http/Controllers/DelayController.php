@@ -66,8 +66,8 @@ class DelayController extends Controller
         $s = new Delays();
         $s->StudentID = request('');
         $s->LessonID = request('');
-        $s->Mennyiseg = request('');
-        $s->Datum = request('');
+        $s->Mennyiseg = request('delay');
+        $s->Datum = Carbon::now();
         $s->save();
         return view('teacher_students_list');
     }
