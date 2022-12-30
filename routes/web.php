@@ -49,6 +49,7 @@ Route::group(['middleware' => ['auth', 'verified', 'parent']], function () {
     Route::post('/parent_grades/table', [App\Http\Controllers\GradeController::class, 'showPGrad'])->name('parent_grades_table');
 });
 
+/*
 Route::get('/teacher_delays', function () {
     return view('teacher_delays');
 })->middleware(['auth', 'verified', 'teacher'])->name('teacher_delays');
@@ -56,12 +57,14 @@ Route::get('/teacher_delays', function () {
 Route::get('/teacher_grades', function () {
     return view('teacher_grades');
 })->middleware(['auth', 'verified', 'teacher'])->name('teacher_grades');
-
+*/
+/*
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+*/
 
 Route::get('/dbtest', function () {
     return dd(DB::select("select * from users"));

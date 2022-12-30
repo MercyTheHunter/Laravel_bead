@@ -44,13 +44,19 @@
                                 </td>
                                 <td class="text-lg text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                     <form action="/teacher_students/store_grade" method="POST">
+                                        @csrf
                                         <input type="text" id="grade" name="grade">
+                                        <input type="hidden" id="studentvnev" name="studentvnev" value={{$i->Vnev}}>
+                                        <input type="hidden" id="lessonid" name="lessonid" value={{$i->ID}}>
                                         <button type="submit" class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">jegy beírása</button>
                                     </form>
                                 </td>
                                 <td class="text-lg text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                    <form action="/teacher_students/list" method="POST">
+                                    <form action="/teacher_students/store_delay" method="POST">
+                                        @csrf
                                         <input type="text" id="delay" name="delay">
+                                        <input type="hidden" id="studentvnev" name="studentvnev" value={{$i->Vnev}}>
+                                        <input type="hidden" id="lessonid" name="lessonid" value={{$i->ID}}>
                                         <button type="submit" class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">késés</button>
                                     </form>
                                 </td>
