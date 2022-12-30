@@ -8,11 +8,11 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="pl-6 pt-6 text-gray-900">
-                    {{ __('Válassza ki mely gyermeke jegyeit szeretné megtekinteni') }}
+                <div class="p-6 text-gray-900">
+                    {{ __("Válassza ki, hogy gyermekének mely tárgyból kapott jegyeit szeretné megtekinteni") }}
                 </div>
                 <div class="p-6">
-                    <form action="/parent_grades/subject" method="POST">
+                    <form action="/parent_grades/table" method="POST">
                         @csrf
                         <div class="flex justify-left">
                             <div class="mb-3 xl:w-96">
@@ -34,9 +34,30 @@
                                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                     aria-label=".form-select-lg example"
                                     id="studentname" name="studentname">
+                                        <option value="{{$student}}">Gyermekem
+                                        </option>
+                                </select>
+                                <select
+                                    class="form-select form-select-lg mb-3
+                                            appearance-none
+                                            block
+                                            w-full
+                                            px-4
+                                            py-2
+                                            font-normal
+                                            text-gray-700
+                                            bg-white bg-clip-padding bg-no-repeat
+                                            border border-solid border-gray-300
+                                            rounded
+                                            transition
+                                            ease-in-out
+                                            m-0
+                                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                    aria-label=".form-select-lg example"
+                                    id="subject" name="subject">
                                     <option selected>Válasszon..</option>
-                                    @foreach ($student as $i)
-                                        <option value="{{ $i->ID }}">{{ $i->Vnev }} {{ $i->Knev }}
+                                    @foreach ($subjects as $i)
+                                        <option value="{{ $i->Nev }}">{{ $i->Nev }}
                                         </option>
                                     @endforeach
                                 </select>
