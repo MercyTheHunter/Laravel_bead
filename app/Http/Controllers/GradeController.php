@@ -94,4 +94,15 @@ class GradeController extends Controller
 
         return view('parent_grades_table', compact('grades', 'avg'));
     }
+
+    public function storeG(Request $request)
+    {
+        $s = new Grades();
+        $s->Idopont = request('');
+        $s->StudentID = request('');
+        $s->Jegy = request('');
+        $s->LessonID = request('');
+        $s->save();
+        return view('teacher_students_list');
+    }
 }
