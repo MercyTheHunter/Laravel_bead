@@ -14,7 +14,7 @@
 
             <!-- email -->
             <div>
-                <x-input-label for="email" :value="__('Email')" />
+                <x-input-label for="email" :value="__('Email cím')" />
 
                 <x-text-input id="email" class="block mt-1 w-full" type="text" name="email" :value="old('email')"
                     required autofocus />
@@ -24,7 +24,7 @@
 
             <!-- Password -->
             <div class="mt-4">
-                <x-input-label for="password" :value="__('Password')" />
+                <x-input-label for="password" :value="__('Jelszó')" />
 
                 <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required
                     autocomplete="current-password" />
@@ -37,7 +37,7 @@
                 <label for="remember_me" class="inline-flex items-center">
                     <input id="remember_me" type="checkbox"
                         class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                    <span class="ml-2 text-sm text-gray-600">{{ __('Emlékezz rám') }}</span>
                 </label>
             </div>
 
@@ -50,7 +50,7 @@
                 @endif
 
                 <x-primary-button class="ml-3">
-                    {{ __('Log in') }}
+                    {{ __('Bejelentkezés') }}
                 </x-primary-button>
             </div>
         </form>
