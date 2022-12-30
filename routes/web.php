@@ -20,10 +20,7 @@ Route::get('/', function () {
 
 //Teacher things
 Route::group(['middleware' => ['auth', 'verified', 'teacher']], function () {
-    Route::get('/teacher_dashboard', function () {
-        return view('teacher_dashboard');
-    })->name('teacher_dashboard');
-
+    Route::get('/teacher_dashboard', [App\Http\Controllers\DashboardController::class, 'showT'])->name('teacher_dashboard');
     Route::get('/teacher_timetable', [App\Http\Controllers\LessonController::class, 'showT'])->name('teacher_timetable');
     Route::get('/teacher_students', [App\Http\Controllers\TeacherController::class, 'show'])->name('teacher_students');
     Route::get('/teacher_students/give_grade', [App\Http\Controllers\TeacherController::class, 'create'])->name('teacher_studentslist.create');
@@ -32,10 +29,7 @@ Route::group(['middleware' => ['auth', 'verified', 'teacher']], function () {
 
 //Student things
 Route::group(['middleware' => ['auth', 'verified', 'student']], function () {
-    Route::get('/dashboard', function () {
-        return view('student_dashboard');
-    })->name('dashboard');
-
+    Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'showS'])->name('dashboard');
     Route::get('/timetable', [App\Http\Controllers\LessonController::class, 'showS'])->name('timetable');
     Route::get('/delays', [App\Http\Controllers\DelayController::class, 'showS'])->name('delays');
     Route::get('/grades', [App\Http\Controllers\GradeController::class, 'showS'])->name('grades');
@@ -44,10 +38,7 @@ Route::group(['middleware' => ['auth', 'verified', 'student']], function () {
 
 //Parent things
 Route::group(['middleware' => ['auth', 'verified', 'parent']], function () {
-    Route::get('/parent_dashboard', function () {
-        return view('parent_dashboard');
-    })->name('parent_dashboard');
-
+    Route::get('/parent_dashboard', [App\Http\Controllers\DashboardController::class, 'showP'])->name('parent_dashboard');
     Route::get('/parent_timetable', [App\Http\Controllers\LessonController::class, 'showP'])->name('parent_timetable');
     Route::post('/parent_timetable/table', [App\Http\Controllers\LessonController::class, 'showPS'])->name('parent_timetable_table');
     Route::get('/parent_delays', [App\Http\Controllers\DelayController::class, 'showP'])->name('parent_delays');
