@@ -34,7 +34,6 @@
                                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                     aria-label=".form-select-lg example"
                                     id="studentname" name="studentname">
-                                    <option selected>Válasszon..</option>
                                     @foreach ($student as $i)
                                         <option value="{{ $i->ID }}">{{ $i->Vnev }} {{ $i->Knev }}
                                         </option>
