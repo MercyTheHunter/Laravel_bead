@@ -4,25 +4,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!--auth()->user()->role == 'student'-->
-        <title>
-            @auth
-                @if((strcmp(substr(auth()->user()->name,0,1),"T")) == 0)
-                    Hello Teacher!
-                @endif
-
-                @if((strcmp(substr(auth()->user()->name,0,1),"P")) == 0)
-                    Hello Parent!
-                @endif
-
-                @if((strcmp(substr(auth()->user()->name,0,1),"S")) == 0)
-                    Hello Student!
-                @endif
-            @else
-                Laravel
-            @endauth
-        </title>
-
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
